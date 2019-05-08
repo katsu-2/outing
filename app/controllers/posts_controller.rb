@@ -3,16 +3,20 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.recent.includes(:user)
+    # @category = Category.all
+    # binding.pry
   end
 
   def show
     @user = User.find_by(id: @post.user_id)
     @comments = @post.comments.includes(:user)
     @like = Like.new
+    # binding.pry
   end
 
   def new
     @post = current_user.posts.new
+    @category = Category.all
   end
 
   def create
@@ -48,7 +52,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :answer)
+    params.require(:post).permit(:title, :content, :answer, :category_id)
   end
 
   def set_post

@@ -1,0 +1,10 @@
+= render 'shared/top'
+
+.f-around
+  .f
+    .f__show
+      - @categories.each do |category|
+        .f__show__c#folder
+          .f__show__c__title
+            %p
+              = link_to category.name, category_path(category)
