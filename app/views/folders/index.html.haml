@@ -1,2 +1,2 @@
-%h1 Folders#index
-%p Find me in app/views/folders/index.html.haml
+= render 'shared/top'
+= render partial: 'shared/folder', locals: { folders: @folders }

@@ -1,2 +1,29 @@
-%h1 Folders#show
-%p Find me in app/views/folders/show.html.haml
+
+.f-around
+  .f
+    .f__title
+      %h1
+        = @folder.name
+    .f__show
+      - @belongPosts.includes(:post).each do |post|
+        .f__show__c#folder
+          .f__show__c__title
+            %p
+              = post.post.title
+          .f__show__c__main#folder-main
+            .f__show__c__main--top
+              .f__show__c__main--top__title
+                %h2
+                  問題
+              .f__show__c__main--top__text
+                %p
+                  = simple_format(post.post.content)
+            .f__show__c__main--under
+              .f__show__c__main--under__title
+                %h2
+                  答え
+              .f__show__c__main--under__text
+                %p
+                  = simple_format(post.post.answer)
+
+
