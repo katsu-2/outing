@@ -5,6 +5,6 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @posts = Post.where(category_id: @category).includes(:user).includes(:category)
+    @posts = Post.where(category_id: @category).includes(:user).includes(:category).page(params[:page]).per(10)
   end
 end

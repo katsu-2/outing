@@ -1,3 +1,4 @@
 = render 'shared/top'
 
 = render partial:'posts/post', locals: { posts: @posts}
+= paginate @posts

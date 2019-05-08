@@ -2,16 +2,14 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.recent.includes(:user)
-    # @category = Category.all
-    # binding.pry
+    @posts = Post.recent.page(params[:page]).per(10).includes(:user).includes(:category)
+
   end
 
   def show
     @user = User.find_by(id: @post.user_id)
     @comments = @post.comments.includes(:user)
     @like = Like.new
-    # binding.pry
   end
 
   def new
