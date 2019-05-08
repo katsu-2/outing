@@ -1,0 +1,90 @@
+$mainblue: #4CADE0;
+$white: #fff;
+$black: #333;
+$navy: #2b546a;
+
+$pc: 768px;
+$sp: 767px;
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+  body {
+    background: #FAFAFA;
+
+    @include sp {
+      background: #0066ff0f;
+    }
+  }
+
+
+  h1 {
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 20px;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .new-btn {
+    position: absolute;
+    left: 44%;
+    background: $mainblue;
+    border: 1px solid $mainblue;
+    color: white;
+    padding: 10px 20px;
+
+  }
+
+.form-title {
+  @include pc {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  };
+  @include sp {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 20px 0 5px;
+  };
+
+}
+.form-field {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #cfcfcf;
+}
+
+#heart_red {
+  color: red;
+  font-size: 1.2rem;
+}
+
+#heart_normal {
+  color: gray;
+  font-size: 1.2rem;
+}
+
+#like_index {
+  font-size: 1.2rem;
+  padding-left: 0;
+  color: black;
+}
+
+.input-default {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #cfcfcf;
+}
