@@ -1,0 +1,27 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light.nav-border
+  = link_to 'Outing', root_path, class: "navbar-brand text"
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse.nav-posi
+    - if user_signed_in?
+      = form_tag posts_path, method: :get do
+        .input-group
+          = text_field_tag :search, params[:search], class: "form-control", placeholder: "キーワード"
+          %span.search-btn
+          = submit_tag "検索", name: nil
+      %ul.navbar-nav.right
+        %li.nav-item.dropdown
+          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            = image_tag('user.png', class: 'user-nav', width: 40, height: 40)
+          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+            = link_to '問題を作成', new_post_path, class: "dropdown-item"
+            = link_to 'フォルダを作成', '#', class: "dropdown-item"
+            .dropdown-divider
+            = link_to 'マイページ', user_path(current_user), class: "dropdown-item"
+            = link_to 'プロフィール編集', edit_user_registration_path, class: "dropdown-item"
+            .dropdown-divider
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしてもいいですか？"}, class: "dropdown-item"
+    - else
+      %li.nav-item
+        = link_to 'ログイン', new_user_session_path, class: "nav-link user-log"
+        = link_to '新規登録', new_user_registration_path, class: "nav-link user-new"
