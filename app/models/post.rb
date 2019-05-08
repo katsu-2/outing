@@ -7,6 +7,11 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
+  #validation
+  validates :title, presence: true, length: { maximum: 30 }
+  validates :content, presence: true
+  validates :answer, presence: true
+
   scope :recent, -> { order('created_at desc') }
 
   def self.search(search)
