@@ -3,11 +3,12 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   resources :users, only: [:index, :show]
-  # resources :folders do
-  #   resources :posts
-  # end
+  resources :folders do
+    resources :posts
+  end
 
   resources :posts do
+    resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
 

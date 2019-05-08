@@ -5,4 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :folders
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
+
+  #ユーザーが投稿に対して既にいいねしているか
+  def already_liked?(post)
+    likes.exists?(post_id: post.id)
+  end
 end
