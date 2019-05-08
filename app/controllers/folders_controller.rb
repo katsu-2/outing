@@ -20,8 +20,10 @@ class FoldersController < ApplicationController
     @folder = current_user.folders.new(folder_params)
     if @folder.save
       redirect_to root_path
+      flash.now[:success] = "問題集を作成しました"
     else
       render 'new'
+      flash.now[:alert] = "問題集の作成に失敗しました"
     end
   end
 
