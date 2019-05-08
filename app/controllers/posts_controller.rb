@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -25,6 +27,13 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+      flash[:success] = "問題の編集が完了しました"
+    else
+      render 'edit'
+      flash[:alert] = "問題の編集に失敗しました"
+    end
   end
 
   def destroy
@@ -34,5 +43,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :answer)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end

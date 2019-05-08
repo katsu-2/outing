@@ -6,5 +6,5 @@
         = render partial: 'post', locals: {posts: @posts}
   = link_to new_post_path, class: "exhibit-btn" do
     .question 投稿
-  /   = icon("fas", "pen", class: "pen-icon")
+    = icon("fas", "pen", class: "pen-icon")
   / = paginate @posts
