@@ -1,0 +1,14 @@
+
+.form
+  .form__wrap
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form__wrap__title
+        %h1 putqにログイン
+      .form__wrap__email
+        .form__wrap__email__input
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "input-default"
+      .form__wrap__pass
+        .form__wrap__pass__input
+          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" ,class: "input-default"
+      .form__wrap__submit
+        = f.submit "ログイン", class: "form-btn"

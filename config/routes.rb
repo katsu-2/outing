@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
+
   root 'posts#index'
+  resources :users, only: [:index, :show]
+  # resources :folders do
+  #   resources :posts
+  # end
+
   resources :posts
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # resources :categories, only: [:index, :show]
 end
