@@ -1,6 +1,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'bootstrap';
+@import 'common';
 @import 'posts/index';
 @import 'posts/form';
 @import 'posts/show';
@@ -9,3 +10,5 @@
 @import 'users/show';
 @import 'users/login';
 @import 'users/signup';
+@import 'comments/comment';
+@import 'comments/form';
