@@ -6,13 +6,9 @@
           = image_tag('user.png', class: "user-pic", alt: "プロフ画像")
         %p
 
-      .user__info__follow
-        %p.follow
-          フォロー
-          %span 10
-        %p.follower
-          フォロワー
-          %span 5
+      .user__info__name
+        %h4
+          = @user.name
 
     .user__post
       %ul.user__post__bar.nav.nav-tabs
