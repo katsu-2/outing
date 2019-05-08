@@ -1,0 +1,131 @@
+@import 'common';
+.user-show {
+  @include pc {
+    display: flex;
+    margin-top: 20px;
+  };
+
+
+  .user {
+    @include pc {
+      display: flex;
+      width: 80%;
+      margin: 0 auto;
+    };
+
+    @include sp {
+      width: 100%;
+    };
+
+    &__info {
+      @include sp {
+        width: 100%;
+
+      };
+
+      @include pc {
+        width: 25%;
+
+        margin: 20px;
+      };
+
+      &__upper {
+        @include pc {
+          background: $white;
+        };
+
+        p {
+          margin-top: 10px;
+          color: #2b546a;
+          font-size: 1.3rem;
+          font-weight: bold;
+          // background: $white;
+
+          @include sp {
+            margin-top: 20px;
+          };
+
+          .user-pic {
+            border-radius: 50%;
+            width: 50%;
+
+            @include sp {
+              width: 20%;
+            }
+          }
+        }
+        p {
+          @include pc {
+            background: $white;
+            margin-bottom: 0;
+          };
+        }
+      }
+
+      &__follow {
+        display: flex;
+
+        @include pc {
+          background: $white;
+          padding-top: 20px;
+        };
+
+
+        @include sp {
+          position: relative;
+        };
+
+        .follow {
+          @include sp {
+            position: absolute;
+            left: 25%;
+          };
+        }
+
+        .follower {
+          margin-left: 10%;
+
+          @include sp {
+            position: absolute;
+            right: 25%;
+          };
+        }
+      }
+    }
+
+    &__post {
+      width: 70%;
+      margin-left: auto;
+      margin-top: 20px;
+
+      @include sp {
+        width: 100%;
+        padding-top: 20px;
+      };
+
+      &__bar {
+        list-style: none;
+        display: flex;
+        padding: 10px 0;
+        margin: 20px;
+        text-decoration: none;
+
+        li {
+          margin: auto;
+          font-size: 1.2rem;
+          color: #2b546a;
+          cursor: pointer;
+
+
+          span {
+
+          }
+        }
+      }
+
+      &__main {
+
+      }
+    }
+  }
+}
