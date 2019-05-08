@@ -21,11 +21,11 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to root_path
       flash[:notice] = "問題を作成しました"
+      redirect_to root_path
     else
-      render 'new'
       flash[:alert] = "問題作成に失敗しました"
+      render 'new'
     end
   end
 
@@ -34,11 +34,11 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post)
       flash[:success] = "問題の編集が完了しました"
+      redirect_to post_path(@post)
     else
-      render 'edit'
       flash[:alert] = "問題の編集に失敗しました"
+      render 'edit'
     end
   end
 
