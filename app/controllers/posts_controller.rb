@@ -2,18 +2,19 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.recent.includes(:user)
   end
 
   def show
+    @user = User.find_by(id: @post.user_id)
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     if @post.save
       redirect_to root_path
       flash[:notice] = "問題を作成しました"
@@ -37,6 +38,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.destroy
+    redirect_to posts_path
+    flash[:alert] = "問題を削除しました"
   end
 
   private
