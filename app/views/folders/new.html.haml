@@ -1,7 +1,7 @@
 .folder-around
   = form_for (@folder) do |f|
     .folder__label
-      = f.label :name, 'フォルダ名', class: "f__label"
+      = f.label :name, '問題集のタイトル', class: "f__label"
       = f.text_field :name, class: "f__name"
     .folder__post
       - @posts.each do |post|
@@ -17,13 +17,7 @@
 
           .posts--all--new__post--each__category
             %span
-              = link_to '#' do
-                = icon("fas", "heart", id: "heart_red")
-                / %span#like_index
-                /   = post.liked_users.size
-              = link_to 'カテゴリー', '#', class: "cat"
-              = link_to 'カテゴリー', '#', class: "cat"
-              = link_to 'カテゴリー', '#', class: "cat"
+              = link_to post.category.name, '#', class: "cat"
           .posts--all--new__post--each__user
             %p
               = image_tag('user.png', class: "user-pic", alt: "プロフ画像", width: 30, height: 30)
