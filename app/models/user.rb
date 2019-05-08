@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
 
+  #ユーザーが投稿に対して既にいいねしているか
+  def already_liked?(post)
+    likes.exists?(post_id: post.id)
+  end
 end
