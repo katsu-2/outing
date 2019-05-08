@@ -12,6 +12,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    if @post.save
+      redirect_to root_path
+      flash[:notice] = "問題を作成しました"
+    else
+      render 'new'
+      flash[:alert] = "問題作成に失敗しました"
+    end
   end
 
   def edit
