@@ -19,8 +19,8 @@
             %span
               = link_to '#' do
                 = icon("fas", "heart", id: "heart_red")
-                %span#like_index
-                  = post.liked_users.size
+                / %span#like_index
+                /   = post.liked_users.size
               = link_to 'カテゴリー', '#', class: "cat"
               = link_to 'カテゴリー', '#', class: "cat"
               = link_to 'カテゴリー', '#', class: "cat"
@@ -30,4 +30,4 @@
             %p
               = post.user.name
       = f.submit "フォルダーの作成", class: "f__submit"
-    = paginate @posts
+    / = paginate @posts
