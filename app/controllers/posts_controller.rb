@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy]
 
   def index
     @posts = Post.recent.page(params[:page]).per(10).includes(:user).includes(:category)
