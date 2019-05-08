@@ -51,4 +51,7 @@ production:
   <<: *default
   database: outing_production
   username: outing
+  adapter: postgresql
+  encording: unicode
+  pool: 5
   password: <%= ENV['OUTING_DATABASE_PASSWORD'] %>
