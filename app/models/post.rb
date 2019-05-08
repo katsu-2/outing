@@ -8,4 +8,12 @@ class Post < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
 
   scope :recent, -> { order('created_at desc') }
+
+  def self.search(search)
+    if search
+      where('title LIKE :search or content LIKE :search', { search: "%#{search}%"})
+    else
+      all
+    end
+  end
 end
