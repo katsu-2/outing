@@ -1,2 +1,10 @@
-- @posts.each do |post|
-  = post.title
+.posts
+  .posts--all
+    .posts--all--new
+      = render 'shared/top'
+      .posts--all--new__post
+        = render partial: 'post', locals: {posts: @posts}
+  = link_to new_post_path, class: "exhibit-btn" do
+    .question 投稿
+  /   = icon("fas", "pen", class: "pen-icon")
+  / = paginate @posts
