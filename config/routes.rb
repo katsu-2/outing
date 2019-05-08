@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'folders/index'
-  get 'folders/show'
-  get 'folders/new'
   devise_for :users, controllers: { registrations: "registrations" }
 
   root 'posts#index'
@@ -11,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
+    resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
 
