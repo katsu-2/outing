@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'folders/index'
+  get 'folders/show'
+  get 'folders/new'
   devise_for :users, controllers: { registrations: "registrations" }
 
   root 'posts#index'
