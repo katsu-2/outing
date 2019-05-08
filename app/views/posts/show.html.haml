@@ -5,6 +5,7 @@
         = image_tag('user.png', class: "user-pic", alt: "ユーザーイメージ")
       .posts--show__user__name
         %p
+          = link_to @post.user.name, user_path(@user)
 
     .posts--show__title
       .posts--show__title__t

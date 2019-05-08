@@ -9,6 +9,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'font-awesome-sass', '~> 5.8', '>= 5.8.1'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'rb-readline', '~> 0.5.5'
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -56,6 +57,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'bullet', '~> 6.0'
 end
 
 group :test do
