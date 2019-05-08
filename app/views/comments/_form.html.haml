@@ -1,0 +1,12 @@
+.form-around
+  .posts__comment__form
+    .posts__comment__form__title
+      %p
+        コメントする
+    .posts__comment__form__main
+      = form_for [@post, Comment.new] do |f|
+        .posts__comment__form__main__content
+          = f.text_area :comment, rows: 6 ,maxlength: 2000, placeholder: "コメントする",class: "comment-f"
+          = f.hidden_field :user_id, value: current_user.id
+          .posts__comment__form__main__content__submit
+            = f.submit "コメントする", class: "submit-btn"
