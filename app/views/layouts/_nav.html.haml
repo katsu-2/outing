@@ -1,5 +1,5 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-light.nav-border
-  = link_to 'Putq', root_path, class: "navbar-brand text"
+  = link_to 'Outing', root_path, class: "navbar-brand text"
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse.nav-posi
@@ -25,5 +25,3 @@
       %li.nav-item
         = link_to 'ログイン', new_user_session_path, class: "nav-link user-log"
         = link_to '新規登録', new_user_registration_path, class: "nav-link user-new"
-
-

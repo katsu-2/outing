@@ -1,0 +1,40 @@
+@import 'common';
+.nav-border {
+  box-shadow: 0 0 1px 1px rgba(20,23,28,0.1), 0 3px 1px 0 rgba(20,23,28,0.1);
+}
+.text {
+  margin-left: 30px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: auto;
+}
+
+
+.right {
+  margin-left: 35%;
+}
+
+.user-nav {
+  border-radius: 50%;
+}
+
+.nav-posi {
+  position: relative;
+}
+
+.nav-item {
+  list-style: none;
+  display: flex;
+  right: 10%;
+  // position: absolute;
+  // text-decoration: none;
+}
+
+.user-new {
+  background: #2CBEE9;
+  color: white;
+}
+
+.user-log {
+  color: #2CBEE9;
+}
