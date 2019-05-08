@@ -17,10 +17,13 @@
     &__title {
       h1 {
         text-align: center;
-        font-size: 2.7rem;
+        font-weight: bold;
+        font-size: 1.2rem;
 
         @include pc {
           text-align: left;
+          font-size: 2rem;
+          font-weight: bold;
         };
       }
     }
@@ -53,6 +56,7 @@
         &__main {
           display: none;
           padding: 40px 30px 20px;
+          background: white;
 
           @include sp {
             background: white;
