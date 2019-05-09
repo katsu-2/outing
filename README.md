@@ -1,6 +1,7 @@
 # Outing
 url: https://outing-app.herokuapp.com/
 
+
 email: tester@gmail.com
 
 password: 111111
