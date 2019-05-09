@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_category, only: [:new, :create, :edit, :update]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy]
 
@@ -15,7 +16,6 @@ class PostsController < ApplicationController
 
   def new
     @post = current_user.posts.new
-    @category = Category.all
   end
 
   def create
@@ -56,5 +56,9 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_category
+    @category = Category.all
   end
 end
