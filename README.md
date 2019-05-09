@@ -13,6 +13,8 @@ password: 111111
 
 # 使い方
 
+[使い方の説明](https://qiita.com/k19911848/items/1a1dd22a3edad7cd22c1)
+
 
 # 主な機能
 ○ deviseを用いたユーザー管理機能
