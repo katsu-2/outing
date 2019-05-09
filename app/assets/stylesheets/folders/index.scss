@@ -11,10 +11,16 @@
 
     @include pc {
       margin: 20px;
+      border: 1px solid #adb5bd;
+      border-radius: 10px;
     }
     &__title {
       border-bottom: 1px solid #cfcfcf;
       height: 30px;
+
+      @include pc {
+        border-bottom: 1px solid #adb5bd;
+      }
 
       h2 {
         color: $mainblue;
@@ -30,6 +36,9 @@
     }
 
     &__content {
+      @include pc {
+        height: 50px;
+      }
       &__c {
         @include pc {
           font-size: 1.3rem;
