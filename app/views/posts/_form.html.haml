@@ -5,7 +5,9 @@
         .form__post__title__label
           = f.label :タイトル, class: "form-title"
         .form__post__title__field
-          = f.text_field :title, class: "form-field", placeholder: "例）プログラミングの問題"
+          = f.text_field :title, class: "form-field input-text", placeholder: "例）プログラミングの問題"
+          %p#counter 0文字
+
       .form__post__content
         .form__post__content__label
           = f.label :問題, class: "form-title"
