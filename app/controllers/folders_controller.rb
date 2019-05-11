@@ -1,5 +1,5 @@
 class FoldersController < ApplicationController
-  before_action :get_post, only: [:new, :create]
+  before_action :get_post, only: [:new, :create, :edit, :destroy]
   before_action :authenticate_user!, only: [:show, :new]
 
   def index
@@ -24,6 +24,22 @@ class FoldersController < ApplicationController
     else
       render 'new'
       flash.now[:alert] = "問題集の作成に失敗しました"
+    end
+  end
+
+  def edit
+    @folder = Folder.find(params[:id])
+    @posts = Post.all.includes(:user).includes(:category).page(params[:page]).per(10)
+  end
+
+  def update
+    @folder = Folder.find(params[:id])
+    if @folder.update(folder_params)
+      flash[:success] = "問題集の編集が完了しました"
+      redirect_to folder_path(@folder)
+    else
+      flash[:alert] = "問題集の編集に失敗しました"
+      render 'edit'
     end
   end
 

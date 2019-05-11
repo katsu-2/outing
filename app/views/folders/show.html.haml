@@ -4,6 +4,7 @@
     .f__title
       %h1
         = @folder.name
+        = link_to '編集', edit_folder_path(@folder)
     .f__show
       - @belongPosts.includes(:post).each do |post|
         .f__show__c#folder
