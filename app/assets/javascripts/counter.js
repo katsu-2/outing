@@ -18,4 +18,14 @@ $(function () {
       $("#f_counter").text(countNum + "文字");
     };
   });
+
+  $(".input-text").on("keyup", function() {
+    let countNum = String($(this).val().length);
+    if (countNum >= 1001) {
+      $("#c_counter").css("color", "red");
+      $("#c_counter").text("1000文字以下で入力して下さい");
+    } else {
+      $("#c_counter").text(countNum + "文字");
+    };
+  });
 });
