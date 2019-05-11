@@ -1,5 +1,5 @@
 class FoldersController < ApplicationController
-  before_action :get_post, only: [:new, :create]
+  before_action :get_post, only: [:new, :create, :edit, :destroy]
   before_action :authenticate_user!, only: [:show, :new]
 
   def index
@@ -28,6 +28,8 @@ class FoldersController < ApplicationController
   end
 
   def edit
+    @folder = Folder.find(params[:id])
+    @posts = Post.all.includes(:user).includes(:category).page(params[:page]).per(10)
   end
 
   def update

@@ -1,7 +1,7 @@
 .folder-around
   = form_for (@folder) do |f|
     .folder__label
-      = f.label :name, '問題集のタイトル', class: "f__label", id: "input-text"
+      = f.label :name, '問題集のタイトル', class: "f__label input-text"
       = f.text_field :name, placeholder: "20字以内" ,class: "f__name input-text"
       %p#f_counter.f_count 0文字
     .folder__post
