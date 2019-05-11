@@ -92,3 +92,13 @@ $sp: 767px;
 #counter {
   text-align: right;
 }
+
+.f_count {
+  position: absolute;
+  right: 0;
+  top: 0;
+  @include pc {
+    right: 20%;
+    top: 0;
+  }
+}
