@@ -27,6 +27,20 @@ class FoldersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @folder = Folder.find(params[:id])
+    if @folder.update(folder_params)
+      flash[:success] = "問題集の編集が完了しました"
+      redirect_to folder_path(@folder)
+    else
+      flash[:alert] = "問題集の編集に失敗しました"
+      render 'edit'
+    end
+  end
+
   private
 
   def folder_params
