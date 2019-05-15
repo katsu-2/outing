@@ -47,13 +47,19 @@
           color: $mainblue;
         };
         @include sp {
-          padding: 20px 50px;
+          padding: 20px 10px;
           color: $mainblue;
         };
          p {
           @include sp {
             font-size: 1.3rem;
           };
+
+          a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.1rem;
+          }
          }
       }
     }
@@ -83,6 +89,8 @@
       &__c {
         span {
           p {
+            border-radius: 15px;
+
             @include pc {
               display: inline-block;
               background: #cfcfcf;

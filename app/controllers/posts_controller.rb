@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.recent.page(params[:page]).per(10).search(params[:search]).includes(:user).includes(:category)
 
+
   end
 
   def show
