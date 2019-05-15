@@ -47,12 +47,25 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   describe "GET #show" do
-    context "登録済みユーザー" do
+    before do
+      @user = create(:user)
+      # @category = create(:category)
+      @post = create(:post, user: @user)
+    end
 
+    context "登録済みユーザー" do
+      before do
+        sign_in @user
+        get :show, params: {id: @post.id}
+      end
+
+      it "200レスポンス返す" do
+        expect(response).to have_http_status 200
+      end
+      it "showテンプレの表示"
     end
 
     context "未登録ユーザー" do
-
     end
   end
 end
