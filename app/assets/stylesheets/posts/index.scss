@@ -39,6 +39,10 @@
         }
       }
       &__post {
+        @include sp {
+          width: 99%;
+          margin: auto;
+        }
 
         &--each {
           @include pc {
@@ -51,6 +55,7 @@
           };
           @include sp {
             border: 1px solid #cfcfcf;
+            border-radius: 10px;
             position: relative;
             background: $white;
             height: 160px;

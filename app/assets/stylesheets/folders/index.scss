@@ -1,5 +1,8 @@
 @import 'common';
 .folder-around {
+  width: 99%;
+  margin: auto;
+
   @include pc {
     margin: 70px;
   };
@@ -8,6 +11,7 @@
     border: 1px solid #cfcfcf;
     margin: 20px 0;
     background: $white;
+    border-radius: 10px;
 
     @include pc {
       margin: 20px;
