@@ -1,4 +1,5 @@
 class FoldersController < ApplicationController
+  before_action :set_folder, only: [:show, :edit, :update]
   before_action :get_post, only: [:new, :create, :edit, :destroy]
   before_action :authenticate_user!, only: [:show, :new]
 
@@ -7,7 +8,6 @@ class FoldersController < ApplicationController
   end
 
   def show
-    @folder = Folder.find(params[:id])
     @belongPosts = @folder.folder_posts
   end
 
@@ -28,12 +28,10 @@ class FoldersController < ApplicationController
   end
 
   def edit
-    @folder = Folder.find(params[:id])
     @posts = Post.all.includes(:user).includes(:category).page(params[:page]).per(10)
   end
 
   def update
-    @folder = Folder.find(params[:id])
     if @folder.update(folder_params)
       flash[:success] = "問題集の編集が完了しました"
       redirect_to folder_path(@folder)
@@ -51,5 +49,9 @@ class FoldersController < ApplicationController
 
   def get_post
     @posts = Post.all
+  end
+
+  def set_folder
+    @folder = Folder.find(params[:id])
   end
 end
