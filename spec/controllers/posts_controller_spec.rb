@@ -112,6 +112,10 @@ RSpec.describe PostsController, type: :controller do
       it "showテンプレを返さない" do
         expect(response).to_not render_template :show
       end
+
+      it "ログインページにリダイレクトする" do
+        expect(response).to redirect_to new_user_session_path
+      end
     end
   end
 
@@ -167,24 +171,26 @@ RSpec.describe PostsController, type: :controller do
 
   describe "POST #create" do
     let!(:user) { create(:user) }
-    let!(:post_attributes) { attributes_for(:post, user: user) }
+    let!(:category) { create(:category) }
+    let!(:post_attributes) { attributes_for(:post, user: user, category: category.id) }
 
-    context "登録済みユーザー" do
-      before do
-        sign_in user
-      end
+    # context "登録済みユーザー" do
+    #   before do
+    #     sign_in user
+    #   end
 
-      # it "投稿を保存する" do
-      #   expect do
-      #     post :create, params: { post: post_attributes }
-      #   end.to change(Post, :count).by(1)
-      # end
+    #   it "投稿を保存する" do
+    #     expect do
+    #       post :create, params: { post: post_attributes }
+    #     end.to change(user.posts, :count).by(1)
+    #   end
 
-      # it "投稿に成功したら、投稿一覧ページにリダイレクト" do
-      #   post :create, params: { post: post_attributes }
-      #   expect(response).to redirect_to(root_path)
-      # end
-    end
+    #   it "投稿に成功したら、投稿一覧ページにリダイレクト" do
+    #     post :create, params: { post: post_attributes }
+    #     expect(response).to redirect_to(root_path)
+    #   end
+
+    # end
 
     context "未登録ユーザー" do
       it "302レスポンス返す" do
